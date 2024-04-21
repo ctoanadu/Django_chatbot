@@ -1,0 +1,10 @@
+django
+djangorestframework
+environs
+python-dotenv
+langchain-community
+unstructured
+chromadb
+tiktoken
+python-magic
+pytest-django
