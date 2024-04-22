@@ -42,6 +42,7 @@ def create_question_answering_chain(data_source_dir: str):
     - RetrievalQA: Question answering chain.
     """
     loaders = load_csv_url_from_directory(data_source_dir)
+    
     #Use a vector index to chunk, create embeddings and store in vectordb
     index_creator = VectorstoreIndexCreator()
     docsearch = index_creator.from_loaders(loaders)
