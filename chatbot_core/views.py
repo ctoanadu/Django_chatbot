@@ -1,11 +1,12 @@
 import logging
+import os
 
 import dotenv
 import requests
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from .rag_gpt_integration import (create_question_answering_chain)
+from .rag_gpt_integration import create_question_answering_chain
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -25,9 +26,16 @@ def chatbot(request):
     """
     if request.method == "POST":
         try:
+            # Get user input from front end
             message = request.POST.get("message")
-            chain = create_question_answering_chain("data_source")
+            current_directory = os.getcwd()
+            data_source_dir = os.path.join(current_directory, "data_source")
+
+            # Get question and answering chain
+            chain = create_question_answering_chain(data_source_dir)
             response_dict = chain(message)
+
+            # Get only response text
             response = response_dict.get("result")
             logging.info({"message": message, "response": response})
             return JsonResponse({"message": message, "response": response})
