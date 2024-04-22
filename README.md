@@ -8,7 +8,7 @@ This repository contains a Django project for building a chatbot backend integra
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository_url>
+   git clone git@github.com:ctoanadu/Django_chatbot.git
    ```
 
 2. **Navigate to the project directory**:
@@ -27,14 +27,9 @@ This repository contains a Django project for building a chatbot backend integra
    ```bash
    touch .env
    ```
+5. **Set up OpenAI API key in the .env file**
    ```bash
    OPENAI_API_KEY=*****************************
-   ```
-
-
-5. **Start the Django development server**:
-   ```bash
-   python manage.py runserver
    ```
 
 6. **Start the Django development server**:
@@ -45,4 +40,9 @@ This repository contains a Django project for building a chatbot backend integra
 
 - Access the user interface by navigating to http://127.0.0.1:8000/ in your web browser.
 
+
+## Screenshot of usage
+
+
+![Chatbot](./images/chatbot_image.png)
 
